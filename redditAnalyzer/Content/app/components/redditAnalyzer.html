@@ -1,6 +1,5 @@
-﻿<!DOCTYPE html>
-<html ng-app="app">
-<body ng-controller="redditAnalyzer as $ctrl">
+﻿
+<body>
     <img class="reddit-icon"src="../../res/reddit-2.svg"/>
     <form ng-submit="$ctrl.analyze($ctrl.userName)" class="form-group">
         <div class="row">
@@ -27,6 +26,9 @@
         <li>
             date: {{ $ctrl.bestComment.date }}
         </li>
+        <li>
+            test: {{ $ctrl.testvar }}
+        </li>
     </ul>
 
 
@@ -35,11 +37,7 @@
             class="chart chart-bar test-chart">
     </canvas>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <script src="../../lib/angularjs/Chart.js"></script>
-    <script src="../../lib/angularjs/angular-chart.js"></script>
     <script src="redditAnalyzer.js"></script>
     <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="../../app/components/redditAnalyzer.css">
 </body>
-</html>
