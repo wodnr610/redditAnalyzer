@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<body ng-controller="redditAnalyzer as $ctrl">
+    <img class="reddit-icon"src="../../res/reddit-2.svg"/>
+    <form ng-submit="$ctrl.analyze($ctrl.userName)" class="form-group">
+        <div class="row">
+            <input ng-model="$ctrl.userName" class="col-xs-6 user-name-input form-control input-sm" id="userName" type="text" placeholder="Enter a reddit user" />
+            <button class="col-xs-3 user-name-submit btn btn-default" type="submit" >Analyze</button>
+        </div>
+    </form>
+    <ul>
+        <li>
+            User Name: {{ $ctrl.accountData.name }}
+        </li>
+        <li>
+            User Comment Karma: {{ $ctrl.accountData.comment_karma }}
+        </li>
+        <li>
+            User Link Karma: {{ $ctrl.accountData.link_karma }}
+        </li>
+        <li>
+            User Total Karma: {{ $ctrl.accountData.total_karma }}
+        </li>
+        <li>
+            Best Comment was : {{ $ctrl.bestComment.comment }} with {{ $ctrl.bestComment.karma }} points
+        </li>
+        <li>
+            date: {{ $ctrl.bestComment.date }}
+        </li>
+    </ul>
+
+
+    <canvas data-ng-init="$ctrl.onInit()"
+            id="bar" 
+            class="chart chart-bar test-chart">
+    </canvas>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="../../lib/angularjs/Chart.js"></script>
+    <script src="../../lib/angularjs/angular-chart.js"></script>
+    <script src="redditAnalyzer.js"></script>
+    <link rel="stylesheet" href="../../lib/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="../../app/components/redditAnalyzer.css">
+</body>
+</html>

@@ -1,0 +1,9 @@
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\bin\redditAnalyzer.dll.config
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\bin\redditAnalyzer.dll
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\bin\redditAnalyzer.pdb
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\obj\Debug\redditAnalyzer.csproj.CoreCompileInputs.cache
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\obj\Debug\redditAnalyzer.dll
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\obj\Debug\redditAnalyzer.pdb
+C:\Users\Chris\Documents\Visual Studio 2017\Project\redditAnalyzer\redditAnalyzer\obj\Debug\redditAnalyzer.csprojResolveAssemblyReference.cache
