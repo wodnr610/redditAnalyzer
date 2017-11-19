@@ -66,6 +66,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\app\components\test.html" />
+    <Content Include="Content\app\components\test.js" />
     <Content Include="Content\lib\angularjs\angular-chart.min.js.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

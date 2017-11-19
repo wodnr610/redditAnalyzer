@@ -1,20 +1,24 @@
 ﻿<!DOCTYPE html>
 <html ng-app="app">
-<body>
-    <img class="reddit-icon" src="Content/res/reddit-2.svg" />
-    <a ui-sref="analyze" ui-sref-active="active">click me</a>
+<head>
 
-    <ui-view></ui-view>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
-    <script src="Content/app/app.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
     <script src="Content/lib/angularjs/Chart.js"></script>
     <script src="Content/lib/angularjs/angular-chart.js"></script>
+    <script src="Content/app/app.js"></script>
     <script src="Content/app/components/redditAnalyzer.js"></script>
 
     <link rel="stylesheet" href="Content/lib/bootstrap/bootstrap.css">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="Content/lib/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="Content//app/components/redditAnalyzer.css">
+    <link rel="stylesheet" href="Content/app/components/redditAnalyzer.css">
+
+</head>
+<body>
+    <img class="reddit-icon" src="Content/res/reddit-2.svg" />
+    <a ui-sref="redditAnalyzer">click me</a>
+    <div ui-view></div>
+
 </body>
 </html>

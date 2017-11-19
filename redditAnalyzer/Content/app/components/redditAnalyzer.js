@@ -1,8 +1,9 @@
-angular.module('app', ['chart.js'])
+angular.module('app')
     .component('redditAnalyzer', {
-        templateUrl: 'redditAnalyzer.html',
-        controller: ['$window', '$http', 'home',
-            function ($window, $http, home) {
+        templateUrl: 'Content/app/components/redditAnalyzer.html',
+        bindings: {},
+        controller: ['$http',
+            function ($http) {
                 var vm = this;
                 console.log("jello")
                 vm.accountData = {};
@@ -13,7 +14,12 @@ angular.module('app', ['chart.js'])
                 vm.bestComment.date = '';
                 vm.subreddit = {};
                 vm.myChart;
-                vm.testvar = 'hellloo';
+
+                
+
+
+
+
 
                 vm.analyze = function (user) {
                     vm.resetData();
@@ -86,18 +92,16 @@ angular.module('app', ['chart.js'])
                                     }
                                 });
                                 console.log("this is it ", Object.values(vm.subreddit));
-                                //vm.labels = Object.keys(vm.subreddit);
-                                //vm.series = ['Comments'];
-                                //vm.chartData = [
-                                //    Object.values(vm.subreddit)
-                                //];
                             }
                         }, function (error) {
                             throw error;
                         })
                         .catch(function (error) { });
                 }
-            
+
+                vm.$onInit = function () {
+                    console.log("suppppppppp")
+                }
                 
 
             }]

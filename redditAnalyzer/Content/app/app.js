@@ -1,9 +1,9 @@
-﻿angular.module('app', ['ui-router'])
-    .config(['$stateProvider', function ($stateProvider) {
-    var analyzeState = {
-        name: 'analyze',
-        url: '/analyze',
-        component: 'redditAnalyzer'
-    };
-    $stateProvider.state(analyzeState);
+﻿angular.module('app', ['ui.router', 'chart.js'])
+    .config(['$stateProvider', '$urlRouterProvider',  function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/');
+        $stateProvider
+            .state('redditAnalyzer', {
+                url: '/analyze',
+                component: 'redditAnalyzer'
+        });
 }]);
