@@ -3,21 +3,18 @@
         $urlRouterProvider.otherwise('/');
         $stateProvider
             .state('redditAnalyzer', {
-                url: '/analyze',
+                url: '/analyze/:name',
                 component: 'redditAnalyzer',
                 resolve: {
-                    data: ['$http', function ($http) {
-                        return $http.get('https://www.reddit.com/user/' + 'ceej0405' + '/about.json')
-                            .then(function (response) {
-                                console.log("this is the response", response);
-                                return response;
-                            });
-                    }]
+                    resolve:
+                    ['test', '$stateParams', function (test, $stateParams) {
+                        return test.analyze($stateParams.name);
+                    }
+                    ]
                 }
             })
             .state('home', {
                 url: '/',
                 component: 'home'
-                //templateUrl: 'Content/app/components/home.html'
             });
     }]);
