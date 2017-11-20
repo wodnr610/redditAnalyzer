@@ -1,11 +1,16 @@
 angular.module('app')
     .component('redditAnalyzer', {
         templateUrl: 'Content/app/components/redditAnalyzer.html',
-        bindings: {},
+        bindings: {
+            resolve: '='
+        },
         controller: ['$http',
             function ($http) {
                 var vm = this;
-                console.log("jello")
+                vm.$onInit = function () {
+                    console.log("this is the resolve", vm)
+
+                }
                 vm.accountData = {};
                 vm.after = '';
                 vm.bestComment = {};
@@ -14,11 +19,7 @@ angular.module('app')
                 vm.bestComment.date = '';
                 vm.subreddit = {};
                 vm.myChart;
-
                 
-
-
-
 
 
                 vm.analyze = function (user) {
@@ -99,9 +100,6 @@ angular.module('app')
                         .catch(function (error) { });
                 }
 
-                vm.$onInit = function () {
-                    console.log("suppppppppp")
-                }
                 
 
             }]

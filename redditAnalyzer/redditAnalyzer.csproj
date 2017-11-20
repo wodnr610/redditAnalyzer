@@ -66,7 +66,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\app\components\test.html" />
+    <Content Include="Content\app\components\home.html" />
+    <Content Include="Content\app\components\home.js" />
+    <Content Include="Content\app\components\home.css" />
     <Content Include="Content\app\components\test.js" />
     <Content Include="Content\lib\angularjs\angular-chart.min.js.map" />
     <None Include="packages.config" />
@@ -92,8 +94,6 @@
     <Content Include="Content\lib\bootstrap\Site.css" />
     <Content Include="Content\res\background.png" />
     <Content Include="Content\res\reddit-2.svg" />
-    <Content Include="index.js" />
-    <Content Include="index.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

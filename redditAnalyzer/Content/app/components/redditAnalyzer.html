@@ -1,13 +1,8 @@
 ﻿<head>
 </head>
-<body>
+<div analyze-body>
 
-    <form ng-submit="$ctrl.analyze($ctrl.userName)" class="form-group">
-        <div class="row">
-            <input ng-model="$ctrl.userName" class="col-xs-6 user-name-input form-control input-sm" id="userName" type="text" placeholder="Enter a reddit user" />
-            <button class="col-xs-3 user-name-submit btn btn-default" type="submit">Analyze</button>
-        </div>
-    </form>
+    
     <ul>
         <li>
             User Name: {{ $ctrl.accountData.name }}
@@ -30,8 +25,9 @@
     </ul>
 
 
-    <canvas data-ng-init="$ctrl.myChart"
-            id="bar"
-            class="chart chart-bar test-chart"></canvas>
+    <div>
+        <canvas id="bar"
+                class="chart chart-bar test-chart"></canvas>
+    </div>
 
-</body>
+</div>
