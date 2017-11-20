@@ -1,0 +1,40 @@
+﻿body {
+    /*background-color: rgba(219, 255, 247, 0.22);*/
+    background: none;
+    margin: auto;
+    padding-top: 3px;
+    text-align: center;
+    width: 60%;
+    min-height: 100%;
+}
+.home-body {
+    margin: auto;
+    padding-top: 3px;
+    text-align: center;
+    width: 60%;
+    min-height: 100%;
+}
+.user-name-input {
+    margin-top: 30px;
+    margin-right: 8px;
+    width: 80%;
+    height: 50px;
+}
+
+.user-name-submit {
+    margin-top: 30px;
+    color: white;
+    background-color: #FF5700;
+    border: none;
+    height: 50px;
+    width: auto;
+}
+
+.reddit-icon {
+    margin-left: -50px;
+    text-align: center;
+    margin-top: 20%;
+    max-width: 20%;
+    width: auto;
+    height: auto;
+}

@@ -1,0 +1,16 @@
+﻿<div class="home-body">
+    <form ng-submit="$ctrl.analyze($ctrl.userName)" class="form-group">
+        <div class="row">
+            <input ng-model="$ctrl.userName"
+                   class="col-xs-6 user-name-input form-control input-sm"
+                   id="userName"
+                   type="text"
+                   placeholder="Enter a reddit user" />
+            <button 
+                    class="col-xs-3 user-name-submit btn btn-default"
+                    type="submit">
+                Analyze
+            </button>
+        </div>
+    </form>
+</div>
