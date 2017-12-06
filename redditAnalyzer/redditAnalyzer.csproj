@@ -72,6 +72,7 @@
     <Content Include="Content\app\components\test.js" />
     <Content Include="Content\lib\angularjs\angular-chart.min.js.map" />
     <None Include="packages.config" />
+    <Content Include="index.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -94,7 +95,6 @@
     <Content Include="Content\lib\bootstrap\Site.css" />
     <Content Include="Content\res\background.png" />
     <Content Include="Content\res\reddit-2.svg" />
-    <Content Include="index.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
