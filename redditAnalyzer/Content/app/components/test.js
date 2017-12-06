@@ -1,5 +1,5 @@
 ﻿angular.module('app')
-    .factory('test', ['$http', '$state', function ($http, $state) {
+    .factory('test', ['$http', '$state', '$q', function ($http, $state, $q) {
         var vm = this;
 
         vm.accountData = {};
@@ -10,76 +10,66 @@
         vm.bestComment.date = '';
         vm.subreddit = {};
         vm.myChart;
+        var allComments = [];
 
         vm.getAnalysisData = function (redditUser) {
             vm.userName = redditUser;
-            vm.analyze(redditUser);
-            
+            vm.resetData(redditUser);
+            var accountPromise = vm.getAccountInfo(redditUser);
+            var allCommentsPromise = vm.getAllComments(redditUser);
+            return $q.all({
+                accountData: accountPromise,
+                allCommentsPromise: allCommentsPromise
+            });
         }
-
-
-
-        vm.analyze = function (user) {
-            vm.resetData(user);
-            vm.getAccountInfo(user);
-            vm.getAllComments(user);
-            return {
-                accountData: vm.accountData,
-                bestComment: vm.bestComment,
-                userName: vm.userName,
-                subreddit: vm.subreddit,
-                myChart: vm.myChart
-            };
-        }
+        
         vm.resetData = function (user) {
-            vm.accountData = {};
-            vm.after = '';
-            vm.bestComment = {};
-            vm.bestComment.karma = -(Math.pow(2, 53) - 1);
-            vm.userName = user;
-            vm.date = '';
-            vm.subreddit = [];
-            vm.topThreeSub = [];
+            allComments = [];
         }
+
         vm.getAccountInfo = function (user) {
-            console.log("hello there");
-            $http.get('https://www.reddit.com/user/' + user + '/about.json')
+            return $http.get('https://www.reddit.com/user/' + user + '/about.json')
                 .then(function (response) {
-                    vm.accountData = response.data.data;
-                    vm.accountData.total_karma = vm.accountData.comment_karma + vm.accountData.link_karma;
+                    return response.data.data;
                 });
         }
         vm.getAllComments = function (user) {
-            console.log("not again fkkk");
-            $http.get('https://www.reddit.com/user/' + user + '/comments.json' + vm.after)
+            return $http.get('https://www.reddit.com/user/' + user + '/comments.json' + vm.after)
                 .then(
                 function (response) {
+                    console.log("I got the comment info!");
                     tempResponse = response;
-                    var data = response.data.data
+                    var data = response.data.data;
+                    allComments.push(data.children);
                     vm.after = '?after=' + data.after;
-                    for (i = 0; i < data.children.length; i++) {
-                        if (vm.bestComment.karma < parseInt(data.children[i].data.score)) {
-                            vm.bestComment.karma = parseInt(data.children[i].data.score);
-                            vm.bestComment.comment = data.children[i].data.body;
-                            vm.bestComment.date = (new Date(data.children[i].data.created * 1000)).toString();
-                        }
-                        var tempSub = data.children[i].data.subreddit;
-                        if (vm.subreddit[tempSub] === undefined) {
-                            vm.subreddit[tempSub] = 1;
-                        }
-                        else {
-                            vm.subreddit[tempSub]++;
-                        }
+                    //for (i = 0; i < data.children.length; i++) {
+                    //    if (vm.bestComment.karma < parseInt(data.children[i].data.score)) {
+                    //        vm.bestComment.karma = parseInt(data.children[i].data.score);
+                    //        vm.bestComment.comment = data.children[i].data.body;
+                    //        vm.bestComment.date = (new Date(data.children[i].data.created * 1000)).toString();
+                    //    }
+                    //    var tempSub = data.children[i].data.subreddit;
+                    //    if (vm.subreddit[tempSub] === undefined) {
+                    //        vm.subreddit[tempSub] = 1;
+                    //    }
+                    //    else {
+                    //        vm.subreddit[tempSub]++;
+                    //    }
+                    //}
+                    if (response.data.data.after != null) {
+                        return vm.getAllComments(user);
+                    }
+                    else {
+                        return allComments;
                     }
                 }, function (error) {
                     console.log(error);
                     throw error;
-                })
-                .catch(function (error) { });
+                });
         }
         return {
             resolve: vm.resolve,
             hello: vm.hello,
-            analyze: vm.analyze
+            getAnalysisData: vm.getAnalysisData
         }
     }]);

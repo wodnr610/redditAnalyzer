@@ -1,4 +1,4 @@
-﻿body {
+﻿.main-body {
     /*background-color: rgba(219, 255, 247, 0.22);*/
     background: none;
     margin: auto;
@@ -8,6 +8,7 @@
     min-height: 100%;
 }
 .home-body {
+    background: none ;
     margin: auto;
     padding-top: 3px;
     text-align: center;

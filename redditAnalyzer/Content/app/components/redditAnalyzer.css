@@ -5,7 +5,7 @@
 }
 
 .analyze-body {
-    background-color: rgba(219, 255, 247, 0.22) !important;
+    height: 100%;
 }
 
 
@@ -13,7 +13,15 @@ ul {
     text-align: left;
 }
 
+li {
+    color: white;
+}
+
 .chart-bar {
     width: 100% !important;
     height: auto !important;
+}
+
+canvas {
+    margin-bottom: 100px;
 }

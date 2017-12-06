@@ -8,7 +8,8 @@
                 resolve: {
                     resolve:
                     ['test', '$stateParams', function (test, $stateParams) {
-                        return test.analyze($stateParams.name);
+                        var data = test.getAnalysisData($stateParams.name);
+                        return data;
                     }
                     ]
                 }

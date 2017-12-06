@@ -1,6 +1,5 @@
-﻿<head>
-</head>
-<div analyze-body>
+﻿
+<body class="analyze-body">
 
     
     <ul>
@@ -17,7 +16,7 @@
             User Total Karma: {{ $ctrl.accountData.total_karma }}
         </li>
         <li>
-            Best Comment was : {{ $ctrl.bestComment.comment }} with {{ $ctrl.bestComment.karma }} points
+            Best Comment was : {{ $ctrl.bestComment.body }} with {{ $ctrl.bestComment.score }} points
         </li>
         <li>
             date: {{ $ctrl.bestComment.date }}
@@ -29,5 +28,9 @@
         <canvas id="bar"
                 class="chart chart-bar test-chart"></canvas>
     </div>
+    <div>
+        <canvas id="bar2"
+                class="chart chart-bar test-chart"></canvas>
+    </div>
 
-</div>
+</body>
