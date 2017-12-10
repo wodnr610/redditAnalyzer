@@ -1,4 +1,4 @@
-﻿angular.module('app', ['ui.router', 'chart.js'])
+﻿angular.module('app', ['ui.router', 'chart.js', 'ui.bootstrap'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise('/');
         $stateProvider

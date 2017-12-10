@@ -1,25 +1,22 @@
 ﻿.main-body {
-    /*background-color: rgba(219, 255, 247, 0.22);*/
-    background: none;
+    background-color: rgba(219, 255, 247, 0.22);
     margin: auto;
     padding-top: 3px;
     text-align: center;
-    width: 60%;
-    min-height: 100%;
+    width: 50%;
+    height: 100%;
 }
 .home-body {
-    background: none ;
     margin: auto;
     padding-top: 3px;
     text-align: center;
-    width: 60%;
-    min-height: 100%;
 }
 .user-name-input {
     margin-top: 30px;
     margin-right: 8px;
-    width: 80%;
+    margin-left: 10%;
     height: 50px;
+    width: 60%;
 }
 
 .user-name-submit {

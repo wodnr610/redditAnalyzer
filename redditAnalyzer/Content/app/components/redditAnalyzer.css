@@ -5,7 +5,7 @@
 }
 
 .analyze-body {
-    height: 100%;
+    background-color: rgba(219, 255, 247, 0.22);
 }
 
 
@@ -23,5 +23,35 @@ li {
 }
 
 canvas {
-    margin-bottom: 100px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.tab-btn {
+    border: none;
+    float: left;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.user-name {
+    color: white;
+    text-align: left;
+    margin-top: 100px;
+}
+
+.chart-drop-down {
+    height: 30px;
+    width: auto;
+}
+
+.year-select {
+    margin-top: 40px;
+    float: left;
+}
+
+.select-label {
+    color:white;
+    font-size: 16px;
+    width: auto;
 }
