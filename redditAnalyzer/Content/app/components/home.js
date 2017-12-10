@@ -6,7 +6,7 @@
             function ($http, $state, test) {
                 var vm = this;
                 vm.userName;
-                
+
                 vm.searchReddit = function () {
                     $http.get('https://www.reddit.com/user/' + vm.userName + '/about.json')
                         .then(function (response) {

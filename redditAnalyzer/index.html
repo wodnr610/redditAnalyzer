@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="app">
+<html ng-app="app" ng-controller="myctrl as $ctrl">
 <head>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="Content/app/components/home.css">
 
 </head>
-<body class="main-body">
+<body ng-class="{'desktop-body' : $ctrl.check == false, 'mobile-body': $ctrl.check == true}">
     <img class="reddit-icon" src="Content/res/reddit-2.svg" />
     <div ui-view></div>
 

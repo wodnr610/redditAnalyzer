@@ -73,6 +73,7 @@
     <Content Include="Content\lib\angularjs\angular-chart.min.js.map" />
     <None Include="packages.config" />
     <Content Include="Content\lib\bootstrap\ui-bootstrap-tpls-2.5.0.min.js" />
+    <Content Include="Content\res\background2.jpg" />
     <Content Include="index.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
