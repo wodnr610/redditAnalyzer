@@ -30,6 +30,7 @@
         
         vm.resetData = function (user) {
             allComments = [];
+            allPost = [];
         }
 
         vm.getAccountInfo = function (user) {
