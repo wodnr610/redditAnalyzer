@@ -3,7 +3,8 @@
         var vm = this;
 
         vm.accountData = {};
-        vm.after = '';
+        vm.commentAfter = '';
+        vm.postAfter = '';
         vm.bestComment = {};
         vm.bestComment.karma = 0;
         vm.userName;
@@ -11,15 +12,19 @@
         vm.subreddit = {};
         vm.myChart;
         var allComments = [];
+        var allPost = [];
 
         vm.getAnalysisData = function (redditUser) {
+            console.log("loading");
             vm.userName = redditUser;
             vm.resetData(redditUser);
             var accountPromise = vm.getAccountInfo(redditUser);
             var allCommentsPromise = vm.getAllComments(redditUser);
+            var allPostPromise = vm.getAllPosts(redditUser);
             return $q.all({
                 accountData: accountPromise,
-                allCommentsPromise: allCommentsPromise
+                allCommentsPromise: allCommentsPromise,
+                allPostPromise: allPostPromise
             });
         }
         
@@ -34,28 +39,13 @@
                 });
         }
         vm.getAllComments = function (user) {
-            return $http.get('https://www.reddit.com/user/' + user + '/comments.json' + vm.after)
+            return $http.get('https://www.reddit.com/user/' + user + '/comments.json' + vm.commentAfter)
                 .then(
                 function (response) {
-                    console.log("I got the comment info!");
                     tempResponse = response;
                     var data = response.data.data;
                     allComments.push(data.children);
-                    vm.after = '?after=' + data.after;
-                    //for (i = 0; i < data.children.length; i++) {
-                    //    if (vm.bestComment.karma < parseInt(data.children[i].data.score)) {
-                    //        vm.bestComment.karma = parseInt(data.children[i].data.score);
-                    //        vm.bestComment.comment = data.children[i].data.body;
-                    //        vm.bestComment.date = (new Date(data.children[i].data.created * 1000)).toString();
-                    //    }
-                    //    var tempSub = data.children[i].data.subreddit;
-                    //    if (vm.subreddit[tempSub] === undefined) {
-                    //        vm.subreddit[tempSub] = 1;
-                    //    }
-                    //    else {
-                    //        vm.subreddit[tempSub]++;
-                    //    }
-                    //}
+                    vm.commentAfter = '?after=' + data.after;
                     if (response.data.data.after != null) {
                         return vm.getAllComments(user);
                     }
@@ -67,6 +57,27 @@
                     throw error;
                 });
         }
+        vm.getAllPosts = function (user) {
+            return $http.get('https://www.reddit.com/user/' + user + '/submitted.json' + vm.postAfter)
+                .then(
+                function (response) {
+                    tempResponse = response;
+                    var data = response.data.data;
+                    allPost.push(data.children);
+                    vm.postAfter = '?after=' + data.after;
+                    if (response.data.data.after != null) {
+                        console.log("sup");
+                        return vm.getAllPosts(user);
+                    }
+                    else {
+                        return allPost;
+                    }
+                }, function (error) {
+                    console.log(error);
+                    throw error;
+                });
+        }
+
         return {
             resolve: vm.resolve,
             hello: vm.hello,

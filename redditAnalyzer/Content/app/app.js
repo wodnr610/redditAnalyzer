@@ -25,18 +25,6 @@
                     ]
                 }
             })
-            //.state('redditAnalyzer', {
-            //    url: '/analyze/:name',
-            //    component: 'redditAnalyzer',
-            //    resolve: {
-            //        resolve:
-            //        ['test', '$stateParams', function (test, $stateParams) {
-            //            var data = test.getAnalysisData($stateParams.name);
-            //            return data;
-            //        }
-            //        ]
-            //    }
-            //})
             .state('home', {
                 url: '/',
                 component: 'home'

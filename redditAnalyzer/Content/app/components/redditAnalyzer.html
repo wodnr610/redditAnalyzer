@@ -26,26 +26,47 @@
             </div>
         </uib-tab>
         <uib-tab index="1" heading="Posts">
-        </uib-tab>
-        <uib-tab index="2" heading="Comments">
             <div>
                 <div>
-                    <canvas id="bar"
+                    <canvas id="post-per-sub"
                             class="chart chart-bar test-chart"></canvas>
                 </div>
                 <div class="row year-select">
                     <label class="col-xs-3 select-label">Select Year:</label>
-                    <select ng-init="yearOption = $ctrl.availableCommentYear[0]"
-                            ng-model="yearOption"
-                            ng-options="option for option in $ctrl.availableCommentYear"
-                            ng-change="$ctrl.changeYear(yearOption)"
+                    <select ng-init="yearPostOption = $ctrl.availablePostYear[0]"
+                            ng-model="yearPostOption"
+                            ng-options="option for option in $ctrl.availablePostYear"
+                            ng-change="$ctrl.changePostYear(yearPostOption)"
                             class="form-control dropdown chart-drop-down col-xs-3"></select>
                 </div>
-                <canvas id="bar2"
+                <canvas id="post-per-year"
                         class="chart chart-bar test-chart"></canvas>
             </div>
         </uib-tab>
-        <uib-tab index="3" heading="Karma History">Long Labeled Justified content</uib-tab>
+        <uib-tab index="2" heading="Comments">
+            <div>
+                <div>
+                    <canvas id="comment-per-sub"
+                            class="chart chart-bar test-chart"></canvas>
+                </div>
+                <div class="row year-select">
+                    <label class="col-xs-3 select-label">Select Year:</label>
+                    <select ng-init="yearCommentOption = $ctrl.availableCommentYear[0]"
+                            ng-model="yearCommentOption"
+                            ng-options="option for option in $ctrl.availableCommentYear"
+                            ng-change="$ctrl.changeCommentYear(yearCommentOption)"
+                            class="form-control dropdown chart-drop-down col-xs-3"></select>
+                </div>
+                <canvas id="comment-per-year"
+                        class="chart chart-bar test-chart"></canvas>
+            </div>
+        </uib-tab>
+        <uib-tab index="3" heading="Karma History">
+            <div>
+                <canvas id="post-karma-history"
+                        class="chart chart-line test-chart"></canvas>
+            </div>
+        </uib-tab>
     </uib-tabset>
 
 
